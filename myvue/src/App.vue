@@ -1,23 +1,43 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+      <section class="container grid-960">
+          <div class="columns">
+              <div class="column col-2"></div>
+              <div class="column col-8 col-md-12">
+                  <header class="text-center">
+                      <h2>Create note</h2>
+                  </header>
+                  <create-note></create-note>
+                  <header class="text-center">
+                      <h2>List of notes</h2>
+                  </header>
+                  <note-list></note-list>
+              </div>
+              <div class="column col-2"></div>
+          </div>
+      </section>
   </div>
 </template>
 
 <script>
+import CreateNote from './components/CreateNote'
+import NoteList from './components/NoteList'
 export default {
-  name: 'App'
+  name: 'app',
+  components: {
+    'create-note': CreateNote,
+    'note-list': NoteList
+  }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  @import url(https://fonts.googleapis.com/css?family=Eczar);
+  @import url(https://fonts.googleapis.com/css?family=Work+Sans);
+  body {
+    font-family: "Work Sans", "Segoe UI", "Helvetica Neue", sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Eczar", sans-serif;
+  }
 </style>

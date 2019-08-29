@@ -1,10 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { Note } from '@/api/notes'
-// import {ADD_NOTE, REMOVE_NOTE, SET_NOTES} from './mutation-types.js'
-const ADD_NOTE = 'ADD_NOTE'
-const REMOVE_NOTE = 'REMOVE_NOTE'
-const SET_NOTES = 'SET_NOTES'
+import { Note } from '../api/notes'
+import {ADD_NOTE, REMOVE_NOTE, SET_NOTES} from './mutation-types.js'
+
 Vue.use(Vuex)
 // Состояние
 const state = {
