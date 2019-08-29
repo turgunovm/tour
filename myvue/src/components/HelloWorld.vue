@@ -1,9 +1,10 @@
 <template>
   <div class="hello">
     <button @click="getProduct">Check</button>
+     <h1>lorem3 </h1>
     <ul v-if="product">
       <li v-for="post in product">
-        {{post.title}}
+          {{post.title}}
       </li>
     </ul>
   </div>
@@ -11,26 +12,38 @@
 
 <script>
 import $ from 'jquery'
+import axios from 'axios';
 export default {
   name: 'HelloWorld',
-  data () {
+  data(){
     return {
-      product: []
+      product: ''
     }
-  }, 
+  },
   methods: {
-    getProduct(){
-        $.ajax({
-          url: 'http://127.0.0.1:8000/api/articles/',
-          type: 'GET',
-          success:(response)=>{
-            console.log(response.data)
-            this.product = response.data
-          }
-      })
+    getProduct: function(){
+      axios
+      .get('http://127.0.0.1:8000/api/articles/')
+      .then(response => (this.product = response));
     }
+   
+  } 
+  // methods: {
+  //   getProduct(){
+  //       $.ajax({
+  //         url: 'http://127.0.0.1:8000/api/articles/',
+  //         type: 'GET',
+  //         console.log(response.data)
+  //         success:(response)=>{
+  //           console.log(response.data)
+  //           this.product = response.data
+
+  //         }
+  //     })
+  //   }
     
-  }
+  // },
+    
 }
 </script>
 
